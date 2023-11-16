@@ -123,3 +123,46 @@ header .column span {
 .piano-keys .key.hide span {
     display: none;
 }
+
+/* Simplifique o seletor para header */
+header {
+    color: #b2b2b2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilo para o botão "Modo Tutorial" */
+#tutorialButton {
+    width: 120px;
+    /* Ajuste conforme necessário */
+    height: 30px;
+    border-radius: 30px;
+    position: relative;
+    background-color: #4caf50;
+    /* Cor de fundo verde */
+    color: #fff;
+    /* Cor do texto branco */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Adicione um novo seletor para o texto dentro do botão */
+#tutorialButton span {
+    padding: 10px 20px;
+    /* Ajuste o padding conforme necessário */
+    display: inline-block;
+}
+
+/* Adicione uma borda sutil ao botão */
+#tutorialButton {
+    border: 1px solid #388e3c;
+    /* Cor da borda verde mais escura */
+}
+
+/* Aumente o espaçamento interno nas teclas pretas para melhor legibilidade */
+.piano-keys .black span {
+    padding: 4px 0;
+}
