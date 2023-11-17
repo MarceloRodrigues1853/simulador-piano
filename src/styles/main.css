@@ -171,12 +171,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
     /* Centraliza verticalmente */
     margin-top: 20px;
     font-size: 2rem;
     /* Ajuste o tamanho da fonte conforme necessário */
-    color: #fff;
-    background-color: #333;
+    color: #ffffff;
+    background-color: #333333;
     /* Cor de fundo */
     padding: 10px;
     /* Adiciona algum espaço interno */

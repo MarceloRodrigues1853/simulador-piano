@@ -7,19 +7,16 @@ const volumeSlider = document.querySelector(".volume-slider input");
 // Selecionando a caixa de seleção das teclas
 const keysCheck = document.querySelector(".keys-check input");
 
-// Array para armazenar as teclas mapeadas
-let mappedKeys = [];
-
-// Criando um novo objeto de áudio
-let audio = new Audio("src/tunes/a.wav");
-
 // Elemento para mostrar as notas do tutorial
 const tutorialNotesElement = document.getElementById("tutorialNotes");
+
+// Array para armazenar as teclas mapeadas
+let mappedKeys = [];
 
 // Função para tocar uma nota
 const playTune = (key) => {
   // Definindo o arquivo de áudio a ser reproduzido
-  audio.src = `src/tunes/${key}.wav`;
+  const audio = new Audio(`src/tunes/${key}.wav`);
   audio.play();
 
   // Adicionando a classe "active" à tecla pressionada
@@ -39,21 +36,10 @@ const playTune = (key) => {
 const tutorialMode = () => {
   // Notas da sequência de tutorial em minúsculas
   const tutorialSequence = [
-    "g",
-    "g",
-    "h",
-    "g",
-    "l",
-    "k",
-    "g",
-    "g",
-    "h",
-    "g",
-    "l",
-    "k",
-    "g",
-    "d",
-    "g",
+    "s","s","d","s","g","t",
+    "s","s","d","s","h","g",
+    "s","s","j","g","t","d",
+    "j","k","j","g","h","g",
   ];
 
   // Tempo entre cada nota (em milissegundos)
@@ -62,7 +48,12 @@ const tutorialMode = () => {
   // Função para tocar uma única nota e avançar para a próxima
   const playNextNote = (index) => {
     if (index < tutorialSequence.length) {
-      playTune(tutorialSequence[index]);
+      // Criando um novo objeto de áudio para cada nota
+      const audioNote = new Audio(`src/tunes/${tutorialSequence[index]}.wav`);
+      audioNote.play();
+
+      // Atualizando as notas no elemento de tutorial
+      tutorialNotesElement.textContent = tutorialSequence[index];
 
       // Agendar a próxima nota após o intervalo de tempo
       setTimeout(() => {
@@ -96,6 +87,7 @@ document.addEventListener("keydown", (e) => {
 
 // Função para alterar o volume
 const changeVolume = (e) => {
+  const audio = new Audio(); // Criando um novo objeto de áudio
   audio.volume = e.target.value;
 };
 
