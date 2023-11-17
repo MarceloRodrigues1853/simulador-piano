@@ -21,7 +21,7 @@ let mappedKeys = [];
 // Função para tocar uma nota
 const playTune = (key) => {
   // Definindo o arquivo de áudio a ser reproduzido
-  const audio = new Audio(`src/tunes/${key}.wav`);
+  const audio = new Audio(`./src/tunes/${key}.wav`);
   audio.play();
 
   // Adicionando a classe "active" à tecla pressionada
@@ -79,7 +79,7 @@ const tutorialMode = () => {
   const playNextNote = (index) => {
     if (index < tutorialSequence.length) {
       // Criando um novo objeto de áudio para cada nota
-      const audioNote = new Audio(`src/tunes/${tutorialSequence[index]}.wav`);
+      const audioNote = new Audio(`./src/tunes/${tutorialSequence[index]}.wav`);
       audioNote.play();
 
       // Atualizando as notas no elemento de tutorial
