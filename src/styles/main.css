@@ -197,6 +197,7 @@ header {
      border-radius: 5px;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
      font-family: 'Arial', sans-serif;
+     text-transform: uppercase;
      font-size: 14px;
      max-width: 200px;
      word-wrap: break-word;
