@@ -186,3 +186,18 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     /* Sombra para destaque */
 }
+
+ #notesDisplay {
+     position: fixed;
+     top: 10px;
+     right: 10px;
+     padding: 10px;
+     background-color: #423737;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     font-family: 'Arial', sans-serif;
+     font-size: 14px;
+     max-width: 200px;
+     word-wrap: break-word;
+ }
