@@ -166,3 +166,22 @@ header {
 .piano-keys .black span {
     padding: 4px 0;
 }
+
+#tutorialNotes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centraliza verticalmente */
+    margin-top: 20px;
+    font-size: 2rem;
+    /* Ajuste o tamanho da fonte conforme necessário */
+    color: #fff;
+    background-color: #333;
+    /* Cor de fundo */
+    padding: 10px;
+    /* Adiciona algum espaço interno */
+    border-radius: 8px;
+    /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra para destaque */
+}

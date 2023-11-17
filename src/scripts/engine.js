@@ -13,6 +13,9 @@ let mappedKeys = [];
 // Criando um novo objeto de áudio
 let audio = new Audio("src/tunes/a.wav");
 
+// Elemento para mostrar as notas do tutorial
+const tutorialNotesElement = document.getElementById("tutorialNotes");
+
 // Função para tocar uma nota
 const playTune = (key) => {
   // Definindo o arquivo de áudio a ser reproduzido
@@ -27,6 +30,9 @@ const playTune = (key) => {
   setTimeout(() => {
     clickedKey.classList.remove("active");
   }, 150);
+
+  // Atualizando as notas no modo tutorial
+  tutorialNotesElement.textContent = key;
 };
 
 // Função para tocar uma sequência no modo tutorial
