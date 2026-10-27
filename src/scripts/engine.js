@@ -102,13 +102,18 @@ function stopVoices() {
 }
 
 function stopTutorial(message) {
+  finishTutorial(message);
+  stopVoices();
+}
+
+// Finaliza a interface e o agendamento sem cortar as notas que ainda estão soando.
+function finishTutorial(message) {
   clearTimeout(tutorialTimer);
   tutorialTimer = null;
   tutorialRunning = false;
   tutorialStage = "idle";
   clearPracticeError();
   clearExpectedKeys();
-  stopVoices();
   tutorialButton.textContent = "Iniciar tutorial";
   tutorialNotes.textContent = message;
   tutorialLane.replaceChildren();
@@ -220,7 +225,7 @@ function handleNote(key) {
   if (tutorialPractice) {
     tutorialIndex++;
     if (tutorialIndex === sequence.length) {
-      stopTutorial(completionMessage("tutorial", tutorialErrors));
+      finishTutorial(completionMessage("tutorial", tutorialErrors));
       return;
     }
     renderLane(tutorialLane, sequence, tutorialIndex);
