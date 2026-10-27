@@ -1,58 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulador de Piano</title>
-
-  <!-- styles -->
   <link rel="stylesheet" href="./src/styles/main.css">
-
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,700;1,100;1,200;1,300;1,400&display=swap"
-    rel="stylesheet">
 </head>
-
 <body>
-  <div class="container">
-    <div id="tutorialNotes"></div>
+  <main class="container">
     <header>
-      <h2>Virtual Piano</h2>
-      <div class="column volume-slider">
-        <span>Volume</span> <input type="range" min="0" max="1" value="0.5" step="any">
-      </div>
-      <div class="column keys-check">
-        <span>Teclas</span> <input type="checkbox" checked>
-      </div>
-
-      <!-- Adicione o botão "Modo Tutorial" -->
-      <button id="tutorialButton">Modo Tutorial</button>
+      <p class="eyebrow">Um tempo para tocar</p>
+      <h1>Virtual Piano</h1>
+      <p class="intro">Explore os sons no seu ritmo. Toque nas teclas ou use as letras do teclado.</p>
     </header>
-    <ul class="piano-keys">
-      <li class="key white" data-key="a"><span>a</span></li>
-      <li class="key black" data-key="w"><span>w</span></li>
-      <li class="key white" data-key="s"><span>s</span></li>
-      <li class="key black" data-key="e"><span>e</span></li>
-      <li class="key white" data-key="d"><span>d</span></li>
-      <li class="key black" data-key="f"><span>f</span></li>
-      <li class="key white" data-key="t"><span>t</span></li>
-      <li class="key black" data-key="g"><span>g</span></li>
-      <li class="key white" data-key="y"><span>y</span></li>
-      <li class="key black" data-key="h"><span>h</span></li>
-      <li class="key white" data-key="u"><span>u</span></li>
-      <li class="key black" data-key="j"><span>j</span></li>
-      <li class="key white" data-key="k"><span>k</span></li>
-      <li class="key black" data-key="o"><span>o</span></li>
-      <li class="key white" data-key="l"><span>l</span></li>
-      <li class="key black" data-key="p"><span>p</span></li>
-      <li class="key white" data-key=";"><span>;</span></li>
-    </ul>
-  </div>
-
+    <section class="controls" aria-label="Controles do piano">
+      <label class="volume-slider" for="volume">Volume <output id="volumeValue" for="volume">50%</output>
+        <input id="volume" type="range" min="0" max="1" value="0.5" step="0.01">
+      </label>
+      <button id="soundButton" type="button" aria-pressed="false">Silenciar</button>
+      <label class="keys-check"><input id="showKeys" type="checkbox" checked> Mostrar letras</label>
+    </section>
+    <p id="keyboardHelp" class="hint">No teclado: A W S E D F T G Y H U J K O L P ; · Tab para navegar e Enter ou Espaço para tocar.</p>
+    <section class="practice" aria-labelledby="practiceTitle">
+      <div><h2 id="practiceTitle">Primeiros passos</h2><p>Um exercício de 8 toques. Siga as letras no seu tempo, sem cronômetro.</p></div>
+      <button id="practiceButton" type="button">Começar treino</button>
+      <div id="practiceLane" class="practice-lane" aria-hidden="true"></div>
+      <p id="practiceStatus" role="status" aria-live="polite">Ao começar, a próxima tecla fica marcada no piano.</p>
+    </section>
+    <div class="keyboard-scroll" role="region" aria-label="Teclado do piano; deslize na horizontal em telas pequenas" tabindex="0">
+      <div class="piano-keys" role="group" aria-label="Notas do piano" aria-describedby="keyboardHelp">
+        <button type="button" class="key white" data-key="a" aria-label="Nota, tecla A"><span>A</span></button>
+        <button type="button" class="key black" data-key="w" aria-label="Nota, tecla W"><span>W</span></button>
+        <button type="button" class="key white" data-key="s" aria-label="Nota, tecla S"><span>S</span></button>
+        <button type="button" class="key black" data-key="e" aria-label="Nota, tecla E"><span>E</span></button>
+        <button type="button" class="key white" data-key="d" aria-label="Nota, tecla D"><span>D</span></button>
+        <button type="button" class="key black" data-key="f" aria-label="Nota, tecla F"><span>F</span></button>
+        <button type="button" class="key white" data-key="t" aria-label="Nota, tecla T"><span>T</span></button>
+        <button type="button" class="key black" data-key="g" aria-label="Nota, tecla G"><span>G</span></button>
+        <button type="button" class="key white" data-key="y" aria-label="Nota, tecla Y"><span>Y</span></button>
+        <button type="button" class="key black" data-key="h" aria-label="Nota, tecla H"><span>H</span></button>
+        <button type="button" class="key white" data-key="u" aria-label="Nota, tecla U"><span>U</span></button>
+        <button type="button" class="key black" data-key="j" aria-label="Nota, tecla J"><span>J</span></button>
+        <button type="button" class="key white" data-key="k" aria-label="Nota, tecla K"><span>K</span></button>
+        <button type="button" class="key black" data-key="o" aria-label="Nota, tecla O"><span>O</span></button>
+        <button type="button" class="key white" data-key="l" aria-label="Nota, tecla L"><span>L</span></button>
+        <button type="button" class="key black" data-key="p" aria-label="Nota, tecla P"><span>P</span></button>
+        <button type="button" class="key white" data-key=";" aria-label="Nota, tecla ponto e vírgula"><span>;</span></button>
+      </div>
+    </div>
+    <section class="tutorial" aria-labelledby="tutorialTitle">
+      <div><h2 id="tutorialTitle">Ouça primeiro, depois toque</h2><p>Primeiro ouça a sequência inteira. Depois é sua vez: siga as letras no seu ritmo. O tutorial espera você acertar.</p></div>
+      <button id="tutorialButton" type="button">Iniciar tutorial</button>
+      <div id="tutorialLane" class="practice-lane" aria-hidden="true"></div>
+      <p id="tutorialNotes" role="status" aria-live="polite">Pronto para começar. Você também pode tocar livremente.</p>
+    </section>
+    <p id="audioStatus" role="status"></p>
+    <footer>Projeto de aprendizado DIO · Marcelo Rodrigues · Créditos ao instrutor Felipe Aguiar.</footer>
+  </main>
   <script src="./src/scripts/engine.js" defer></script>
 </body>
-
 </html>
