@@ -130,6 +130,35 @@ test('tutorial passa da escuta à prática e conclui somente após os acertos', 
   assert.match(app.get('tutorialNotes').textContent, /concluído/);
   assert.ok(!app.get('tutorialNotes').classList.contains('error'));
   assert.equal(app.get('tutorialLane').children.length, 0);
+  assert.equal(app.scheduledNotes().length, 0);
+});
+
+// Concluir deve preservar a nota final; uma interrupção explícita ainda corta o som.
+test('conclusão deixa a última nota terminar e Esc ainda interrompe o áudio', () => {
+  const app = setup();
+  app.click('tutorialButton');
+  for (let i = 0; i < 24; i++) app.tick();
+  const notes = ['s','s','d','s','g','t','s','s','d','s','h','g','s','s','j','g','t','d','j','k','j','g','h','g'];
+  for (const key of notes.slice(0, -1)) app.press(key);
+  const lastVoice = app.audio.find(voice => voice.src.endsWith('/g.wav'));
+  const pausesBefore = lastVoice.pauses;
+  const playsBefore = lastVoice.plays;
+  app.press('g');
+  assert.equal(lastVoice.plays, playsBefore + 1);
+  assert.equal(lastVoice.pauses, pausesBefore, 'concluir não deve pausar a última nota');
+  assert.match(app.get('tutorialNotes').textContent, /Parabéns!/);
+  assert.equal(app.get('tutorialButton').textContent, 'Iniciar tutorial');
+  assert.equal(app.scheduledNotes().length, 0);
+  const lastKey = app.keys.find(button => button.dataset.key === 'g');
+  assert.ok(lastKey.classList.contains('active'));
+  // Executa a remoção do destaque para garantir que ele não fique preso na tela.
+  for (const [id, timer] of [...app.timers]) {
+    if (timer.ms === 180) { app.timers.delete(id); timer.fn(); }
+  }
+  assert.ok(!lastKey.classList.contains('active'));
+  assert.equal(lastVoice.pauses, pausesBefore);
+  app.press('Escape');
+  assert.equal(lastVoice.pauses, pausesBefore + 1);
   assert.equal(app.timers.size, 0);
 });
 
