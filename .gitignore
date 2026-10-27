@@ -1,0 +1,20 @@
+# Dependências locais (o piano atual não requer instalação)
+node_modules/
+
+# Arquivos temporários e logs
+*.log
+*.tmp
+*.swp
+*~
+
+# Configurações e credenciais locais
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
