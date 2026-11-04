@@ -37,11 +37,22 @@ button:hover { filter: brightness(1.12); }
 .practice p.error { color: #ffb4bd; }
 .tutorial p.error { color: #ffb4bd; }
 .key:focus-visible { z-index: 2; outline-offset: -5px; }
-.piano-keys.hide-letters span { visibility: hidden; }
+.piano-keys.hide-letters .shortcut { visibility: hidden; }
 .tutorial { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 22px; padding-top: 24px; border-top: 1px solid #45505a; }
 h2 { font-size: 1.1rem; margin-bottom: 4px; }
 #tutorialNotes { flex-basis: 100%; min-height: 3.2em; }
+.melody-picker { flex-basis: 100%; min-width: 0; }
+.melody-picker label { display: block; margin-bottom: 8px; font-weight: 600; }
+.melody-picker select { width: 100%; min-height: 44px; padding: 10px; border: 1px solid #77838b; border-radius: 8px; background: #22292e; color: #fff; font: inherit; }
+.melody-picker p { margin-top: 8px; font-size: .85rem; }
 #audioStatus { color: #ffce63; line-height: 1.5; }
 footer { margin-top: 20px; font-size: .75rem; }
 @media (max-width: 600px) { body { padding: 16px 12px; } .container { padding: 24px 18px; } .controls { gap: 14px; } .volume-slider { flex: 1 0 100%; } .tutorial button { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Nome musical em destaque; o atalho fica numa segunda linha. */
+.key .note-name { bottom: 48px; font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; }
+.key .note-name small { font: .65rem system-ui, sans-serif; margin-left: 2px; }
+.key .shortcut { bottom: 18px; font-size: .8rem; }
+.key.black .note-name { font-size: .8rem; }
+.practice-cue { font-size: .9rem; }

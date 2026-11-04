@@ -4,6 +4,15 @@ Status: exercício mínimo preparado localmente; demais etapas planejadas. Revis
 
 ## Recorte atual
 
+### Evolução local de 04/11/2026 — duas melodias curtas
+
+- Seletor no tutorial: mantém a sequência anterior e acrescenta Pequeno passeio (8 toques) e Pergunta e resposta (12 toques).
+- Exercícios melódicos originais criados para o projeto, sem incorporar arranjos de terceiros.
+- Escuta e prática usam a mesma sequência; o resultado mostra o título e a quantidade de erros da tentativa. A troca de conteúdo interrompe o modo ativo, limpa os destaques e recomeça a contagem.
+- Sem ranking, histórico, conta, novas fases ou persistência.
+- Análise preliminar dos WAVs por frequência: A/S/D/G correspondem aproximadamente a Dó4/Ré4/Mi4/Sol4. Algumas outras teclas têm cor incompatível com a altura estimada (por exemplo, T é Fá sustenido, embora desenhada branca). O mapeamento visual foi preservado neste marco; a correção fica registrada antes de oferecer ensino de nomes de notas.
+- Revisão visual e sonora das novas melodias ainda pendente. Não publicado.
+
 - Exercício próprio de coordenação com oito toques: A S D T T D S A.
 - Faixa acima do piano com a tecla esperada e até três próximas teclas.
 - Avança somente ao tocar a tecla esperada; notas diferentes não penalizam.
@@ -108,3 +117,12 @@ Só depois de validar os desafios: pontos por conclusão e evolução pessoal, r
 ## Comunicação no LinkedIn
 
 Apresentar como evolução autoral de um projeto iniciado no desafio DIO, com créditos preservados. Destacar o ciclo ouvir, praticar, receber feedback e repetir, além dos testes automatizados. Distinguir melhorias locais de funcionalidades publicadas; anunciar fases, repertório e persistência como planos. Publicar capturas reais e o link atualizado somente após revisão e publicação autorizada. Não afirmar que o projeto já ensina piano completo ou leitura de partitura.
+
+
+## Ajuste local: notas e repertório para iniciantes
+
+- Nome da nota, oitava e atalho separados no piano e reunidos nas indicações do exercício. Correção das cores de Fá/Fá♯, Sol/Sol♯ e Lá/Lá♯/Si de acordo com os WAVs estimados. Sem alterar os arquivos de áudio.
+- Adaptação instrumental de Feliz aniversário (25 toques) e trecho inicial do refrão de Jingle Bells (11 toques). Fontes e créditos no README; sem letra, acompanhamento harmônico ou arranjos modernos copiados.
+- Durações relativas na demonstração; prática livre de limite de tempo, sem pontuar ritmo.
+- Para o próximo marco, escolher apenas uma habilidade: associar nomes às teclas OU acompanhar uma pulsação lenta. Depois, avançar para trechos maiores de repertório tradicional e, mais adiante, pauta musical.
+- Ainda requer escuta e revisão visual local. Não publicado. Esta atualização substitui a pendência anterior de cores desenhadas incorretamente; validação auditiva da afinação continua pendente.

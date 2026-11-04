@@ -2,7 +2,7 @@ const assert = require('node:assert/strict'), vm = require('node:vm'), fs = requ
 const elements=new Map(), events={}, timers=new Map(), audio=[];let timerId=0;
 function el(key){const classes=new Set();return {dataset:{key},value:'0.5',events:{},classList:{add(c){classes.add(c)},remove(c){classes.delete(c)},toggle(c,on){on?classes.add(c):classes.delete(c)},contains(c){return classes.has(c)}},addEventListener(k,fn){this.events[k]=fn},setAttribute(){},removeAttribute(){},replaceChildren(){},appendChild(){},closest(){return null}}}
 const keys=[...'awsedftgyhujkolp;'].map(el);
-for(const id of ['volume','volumeValue','soundButton','tutorialButton','tutorialNotes','audioStatus','showKeys','practiceButton','practiceLane','practiceStatus','tutorialLane'])elements.set(id,el());
+for(const id of ['volume','volumeValue','soundButton','tutorialButton','tutorialNotes','audioStatus','showKeys','practiceButton','practiceLane','practiceStatus','tutorialLane','melodySelect','melodyDescription'])elements.set(id,el());
 class Audio{constructor(src){this.src=src;this.count=0;audio.push(this)}play(){this.count++;return Promise.resolve()}pause(){}}
 const document={createElement:()=>el(),hidden:false,querySelectorAll:()=>keys,querySelector:()=>el(),getElementById:id=>elements.get(id),addEventListener:(k,fn)=>events[k]=fn};
 const ctx=vm.createContext({document,window:{addEventListener:(k,fn)=>events[k]=fn},Audio,setTimeout:(fn,ms)=>{timers.set(++timerId,{fn,ms});return timerId},clearTimeout:id=>timers.delete(id)});

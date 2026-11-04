@@ -18,38 +18,50 @@
         <input id="volume" type="range" min="0" max="1" value="0.5" step="0.01">
       </label>
       <button id="soundButton" type="button" aria-pressed="false">Silenciar</button>
-      <label class="keys-check"><input id="showKeys" type="checkbox" checked> Mostrar letras</label>
+      <label class="keys-check"><input id="showKeys" type="checkbox" checked> Mostrar atalhos</label>
     </section>
     <p id="keyboardHelp" class="hint">No teclado: A W S E D F T G Y H U J K O L P ; · Tab para navegar e Enter ou Espaço para tocar.</p>
     <section class="practice" aria-labelledby="practiceTitle">
-      <div><h2 id="practiceTitle">Primeiros passos</h2><p>Um exercício de 8 toques. Siga as letras no seu tempo, sem cronômetro.</p></div>
+      <div><h2 id="practiceTitle">Primeiros passos</h2><p>Um exercício de 8 toques. Siga as notas no seu tempo, sem cronômetro.</p></div>
       <button id="practiceButton" type="button">Começar treino</button>
       <div id="practiceLane" class="practice-lane" aria-hidden="true"></div>
       <p id="practiceStatus" role="status" aria-live="polite">Ao começar, a próxima tecla fica marcada no piano.</p>
     </section>
+    <p class="hint">Dó, Ré, Mi, Fá, Sol, Lá e Si são nomes de notas. ♯ significa sustenido. O número pequeno indica a oitava; a letra abaixo é o atalho do computador. Isto é um guia de notas, não uma partitura.</p>
     <div class="keyboard-scroll" role="region" aria-label="Teclado do piano; deslize na horizontal em telas pequenas" tabindex="0">
       <div class="piano-keys" role="group" aria-label="Notas do piano" aria-describedby="keyboardHelp">
-        <button type="button" class="key white" data-key="a" aria-label="Nota, tecla A"><span>A</span></button>
-        <button type="button" class="key black" data-key="w" aria-label="Nota, tecla W"><span>W</span></button>
-        <button type="button" class="key white" data-key="s" aria-label="Nota, tecla S"><span>S</span></button>
-        <button type="button" class="key black" data-key="e" aria-label="Nota, tecla E"><span>E</span></button>
-        <button type="button" class="key white" data-key="d" aria-label="Nota, tecla D"><span>D</span></button>
-        <button type="button" class="key black" data-key="f" aria-label="Nota, tecla F"><span>F</span></button>
-        <button type="button" class="key white" data-key="t" aria-label="Nota, tecla T"><span>T</span></button>
-        <button type="button" class="key black" data-key="g" aria-label="Nota, tecla G"><span>G</span></button>
-        <button type="button" class="key white" data-key="y" aria-label="Nota, tecla Y"><span>Y</span></button>
-        <button type="button" class="key black" data-key="h" aria-label="Nota, tecla H"><span>H</span></button>
-        <button type="button" class="key white" data-key="u" aria-label="Nota, tecla U"><span>U</span></button>
-        <button type="button" class="key black" data-key="j" aria-label="Nota, tecla J"><span>J</span></button>
-        <button type="button" class="key white" data-key="k" aria-label="Nota, tecla K"><span>K</span></button>
-        <button type="button" class="key black" data-key="o" aria-label="Nota, tecla O"><span>O</span></button>
-        <button type="button" class="key white" data-key="l" aria-label="Nota, tecla L"><span>L</span></button>
-        <button type="button" class="key black" data-key="p" aria-label="Nota, tecla P"><span>P</span></button>
-        <button type="button" class="key white" data-key=";" aria-label="Nota, tecla ponto e vírgula"><span>;</span></button>
+        <button type="button" class="key white" data-key="a" aria-label="Dó, oitava 4, atalho A"><span class="note-name">Dó<small>4</small></span><span class="shortcut">A</span></button>
+        <button type="button" class="key black" data-key="w" aria-label="Dó♯, oitava 4, atalho W"><span class="note-name">Dó♯<small>4</small></span><span class="shortcut">W</span></button>
+        <button type="button" class="key white" data-key="s" aria-label="Ré, oitava 4, atalho S"><span class="note-name">Ré<small>4</small></span><span class="shortcut">S</span></button>
+        <button type="button" class="key black" data-key="e" aria-label="Ré♯, oitava 4, atalho E"><span class="note-name">Ré♯<small>4</small></span><span class="shortcut">E</span></button>
+        <button type="button" class="key white" data-key="d" aria-label="Mi, oitava 4, atalho D"><span class="note-name">Mi<small>4</small></span><span class="shortcut">D</span></button>
+        <button type="button" class="key white" data-key="f" aria-label="Fá, oitava 4, atalho F"><span class="note-name">Fá<small>4</small></span><span class="shortcut">F</span></button>
+        <button type="button" class="key black" data-key="t" aria-label="Fá♯, oitava 4, atalho T"><span class="note-name">Fá♯<small>4</small></span><span class="shortcut">T</span></button>
+        <button type="button" class="key white" data-key="g" aria-label="Sol, oitava 4, atalho G"><span class="note-name">Sol<small>4</small></span><span class="shortcut">G</span></button>
+        <button type="button" class="key black" data-key="y" aria-label="Sol♯, oitava 4, atalho Y"><span class="note-name">Sol♯<small>4</small></span><span class="shortcut">Y</span></button>
+        <button type="button" class="key white" data-key="h" aria-label="Lá, oitava 4, atalho H"><span class="note-name">Lá<small>4</small></span><span class="shortcut">H</span></button>
+        <button type="button" class="key black" data-key="u" aria-label="Lá♯, oitava 4, atalho U"><span class="note-name">Lá♯<small>4</small></span><span class="shortcut">U</span></button>
+        <button type="button" class="key white" data-key="j" aria-label="Si, oitava 4, atalho J"><span class="note-name">Si<small>4</small></span><span class="shortcut">J</span></button>
+        <button type="button" class="key white" data-key="k" aria-label="Dó, oitava 5, atalho K"><span class="note-name">Dó<small>5</small></span><span class="shortcut">K</span></button>
+        <button type="button" class="key black" data-key="o" aria-label="Dó♯, oitava 5, atalho O"><span class="note-name">Dó♯<small>5</small></span><span class="shortcut">O</span></button>
+        <button type="button" class="key white" data-key="l" aria-label="Ré, oitava 5, atalho L"><span class="note-name">Ré<small>5</small></span><span class="shortcut">L</span></button>
+        <button type="button" class="key black" data-key="p" aria-label="Ré♯, oitava 5, atalho P"><span class="note-name">Ré♯<small>5</small></span><span class="shortcut">P</span></button>
+        <button type="button" class="key white" data-key=";" aria-label="Mi, oitava 5, atalho ;"><span class="note-name">Mi<small>5</small></span><span class="shortcut">;</span></button>
       </div>
     </div>
     <section class="tutorial" aria-labelledby="tutorialTitle">
-      <div><h2 id="tutorialTitle">Ouça primeiro, depois toque</h2><p>Primeiro ouça a sequência inteira. Depois é sua vez: siga as letras no seu ritmo. O tutorial espera você acertar.</p></div>
+      <div><h2 id="tutorialTitle">Ouça primeiro, depois toque</h2><p>Primeiro ouça a sequência inteira. Depois é sua vez: siga as notas no seu ritmo. O tutorial espera você acertar.</p></div>
+      <div class="melody-picker">
+        <label for="melodySelect">Escolha uma sequência</label>
+        <select id="melodySelect" aria-describedby="melodyDescription">
+          <option value="original">Sequência anterior · 24 toques</option>
+          <option value="passeio">Pequeno passeio · 8 toques</option>
+          <option value="aniversario">Feliz aniversário · 25 toques</option>
+          <option value="natal">Jingle Bells · trecho de 11 toques</option>
+          <option value="resposta">Pergunta e resposta · 12 toques</option>
+        </select>
+        <p id="melodyDescription">Exemplo de 24 toques preservado da versão inicial do projeto.</p>
+      </div>
       <button id="tutorialButton" type="button">Iniciar tutorial</button>
       <div id="tutorialLane" class="practice-lane" aria-hidden="true"></div>
       <p id="tutorialNotes" role="status" aria-live="polite">Pronto para começar. Você também pode tocar livremente.</p>

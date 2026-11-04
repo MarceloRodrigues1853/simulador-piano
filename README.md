@@ -22,6 +22,10 @@ Depois abra `http://127.0.0.1:8765`. Para encerrar o servidor, use Ctrl+C no ter
 
 ## Controles e modos
 
+Nesta evolução local, o tutorial oferece duas melodias originais curtas: **Pequeno passeio** (8 toques, A/S/D) e **Pergunta e resposta** (12 toques, A/S/D/G). Escolha uma no seletor, ou mantenha a sequência anterior de 24 toques. Primeiro ouça, depois reproduza a mesma sequência. O resultado identifica a melodia e informa seus erros; recomeçar zera a tentativa. Trocar de sequência interrompe o modo ativo antes de iniciar outro conteúdo.
+
+Essas duas melodias foram criadas para os exercícios deste projeto; não são adaptações de repertório popular. Sua inclusão e o seletor ainda aguardam revisão local e publicação.
+
 - **Piano livre:** clique, toque ou use as letras A W S E D F T G Y H U J K O L P e ponto e vírgula.
 - **Teclado acessível:** Tab navega pelos controles; Enter e Espaço acionam a tecla em foco. O foco fica visível.
 - **Volume e silêncio:** ajuste o volume ou use Silenciar, inclusive durante o tutorial.
@@ -59,7 +63,7 @@ As verificações simulam a página, o áudio e os temporizadores. Cobrem volume
 
 ## Limitações e próximos passos
 
-As letras são atalhos de teclado, não nomes musicais. O exercício inicial trabalha coordenação; não ensina técnica de piano, partitura ou ritmo. Não há pontuação, catálogo de músicas, conta ou progresso salvo. A afinação dos sons ainda precisa ser conferida antes de ensinar notas musicais.
+Os atalhos continuam representados por letras do computador. Os nomes musicais foram adicionados separadamente e as cores corrigidas com base na análise de frequência dos WAVs. A análise não substitui conferência auditiva da afinação. O projeto ainda não ensina técnica de piano ou leitura de partitura e não avalia ritmo. Não há pontuação, catálogo amplo, conta ou progresso salvo.
 
 Próximas possibilidades estão descritas em [Escopo do tutorial](ESCOPO-TUTORIAL.md), separadas do que já está implementado. A evolução será feita em pequenos marcos, com revisão local antes da publicação.
 
@@ -68,3 +72,17 @@ Próximas possibilidades estão descritas em [Escopo do tutorial](ESCOPO-TUTORIA
 Desenvolvimento e evolução: **Marcelo Rodrigues** ([MarceloRodrigues1853](https://github.com/MarceloRodrigues1853)).
 
 Projeto originado no desafio educacional da **Digital Innovation One (DIO)**. Agradecimentos ao instrutor **Felipe Silva Aguiar** ([felipeAguiarCode](https://github.com/felipeAguiarCode)) e às contribuições da comunidade. Os créditos de origem permanecem preservados.
+
+
+## Evolução local: nomes de notas e repertório inicial
+
+Os nomes Dó/Ré/Mi/Fá/Sol/Lá/Si aparecem acima dos atalhos, com indicação de oitava e sustenido (♯). A faixa guiada também mostra nota e atalho. Ocultar atalhos mantém os nomes das notas visíveis. As cores foram corrigidas para corresponder às alturas estimadas dos WAVs, sem trocar os arquivos ou os atalhos. Esta interface é um guia de notas, não uma partitura em pauta.
+
+Duas opções instrumentais didáticas, sem letras ou gravações externas, foram acrescentadas:
+
+- **Feliz aniversário:** adaptação monofônica da melodia de Mildred J. Hill, publicada em Good Morning to All (1893), transposta para caber no teclado. 25 toques; preserva repetições, saltos e durações relativas básicas. A sequência antiga foi mantida separadamente como exemplo legado, não como versão musical conferida.
+- **Jingle Bells — início do refrão:** trecho de 11 toques da composição de James Lord Pierpont (1857), com adaptação didática própria e durações relativas. Não é a música inteira nem a letra da versão brasileira.
+
+As demonstrações usam uma unidade de tempo de 750 ms; a prática espera o acerto sem avaliar ritmo. Repertório e identificação sonora ainda aguardam revisão auditiva local antes de publicação.
+
+Fontes de autoria e origem: [Copyright Office — origem da melodia de aniversário](https://www.copyright.gov/history/lore/pdfs/201004%20CLore_April2010.pdf) e [Library of Congress — The One Horse Open Sleigh (1857)](https://www.loc.gov/item/2023812429/). Não foram copiados arranjos modernos, letras ou gravações dessas fontes.
