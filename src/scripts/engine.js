@@ -30,11 +30,6 @@ const activeTimers = new Map();
 // As duas melodias curtas são exercícios originais desta evolução do projeto.
 // As letras continuam sendo atalhos; não dependem da cor desenhada das teclas.
 const melodies = {
-  original: {
-    title: "Sequência anterior",
-    description: "Exemplo de 24 toques preservado da versão inicial do projeto.",
-    keys: ["s", "s", "d", "s", "g", "t", "s", "s", "d", "s", "h", "g", "s", "s", "j", "g", "t", "d", "j", "k", "j", "g", "h", "g"],
-  },
   aniversario: {
     title: "Feliz aniversário",
     description: "Melodia de Mildred J. Hill, publicada como Good Morning to All (1893). Adaptação instrumental didática, sem letra. 25 toques.",
@@ -42,10 +37,22 @@ const melodies = {
     beats: [.75,.25,1,1,1,2,.75,.25,1,1,1,2,.75,.25,1,1,1,1,1,.75,.25,1,1,1,2],
   },
   natal: {
-    title: "Jingle Bells — início do refrão",
-    description: "James Lord Pierpont (1857). Trecho instrumental de 11 toques, adaptado para iniciantes, sem letra.",
-    keys: ["d","d","d","d","d","d","d","g","a","s","d"],
-    beats: [1,1,2,1,1,2,1,1,1.5,.5,3],
+    title: "Jingle Bells — refrão",
+    description: "James Lord Pierpont (1857). Refrão instrumental em quatro frases, 49 toques. Adaptação didática sem letra.",
+    keys: ["d", "d", "d", "d", "d", "d", "d", "g", "a", "s", "d", "f", "f", "f", "f", "f", "d", "d", "d", "d", "s", "s", "d", "s", "g", "d", "d", "d", "d", "d", "d", "d", "g", "a", "s", "d", "f", "f", "f", "f", "f", "d", "d", "d", "g", "g", "f", "s", "a"],
+    beats: [1, 1, 2, 1, 1, 2, 1, 1, 1.5, 0.5, 4, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1.5, 0.5, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4],
+  },
+  asaBranca: {
+    title: "Asa Branca — primeira estrofe",
+    description: "Luiz Gonzaga e Humberto Teixeira (1947). Primeira estrofe instrumental, 35 toques. Ritmo simplificado para aprender; não é a gravação completa.",
+    keys: ["g", "h", "j", "l", "l", "j", "k", "k", "g", "h", "j", "l", "l", "k", "j", "g", "g", "h", "j", "l", "l", "k", "j", "g", "k", "j", "j", "h", "h", "j", "h", "h", "h", "g", "g"],
+    beats: [0.5, 0.5, 1, 1, 1, 1, 1, 2, 0.5, 0.5, 1, 1, 1, 1, 2, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 2],
+  },
+  cantoAlegretense: {
+    title: "Canto Alegretense — tema inicial",
+    description: "Antônio Augusto Fagundes e Euclides Fagundes Filho. Tema inicial instrumental de 25 toques, transposto e simplificado para este teclado. Não é a canção inteira.",
+    keys: ["g", "g", "j", "h", "j", "h", "j", "h", "h", "g", "h", "g", "g", "g", "j", "h", "j", "h", "j", "h", "h", "g", "g", "g", "g"],
+    beats: [1, 1, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 2.5, 1, 1, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 4, 1, 1],
   },
   passeio: {
     title: "Pequeno passeio",
@@ -58,7 +65,7 @@ const melodies = {
     keys: ["a", "s", "d", "g", "d", "s", "a", "d", "s", "d", "s", "a"],
   },
 };
-let selectedMelody = melodies.original;
+let selectedMelody = melodies.passeio;
 let sequence = selectedMelody.keys;
 let muted = false;
 let tutorialTimer = null;
@@ -309,7 +316,7 @@ melodySelect.addEventListener("change", () => {
   // Trocar de conteúdo cancela a tentativa atual e qualquer áudio pendente.
   stopPractice("Treino interrompido ao escolher uma melodia.");
   stopTutorial("Melodia selecionada. Inicie o tutorial para ouvir e depois tocar.");
-  selectedMelody = melodies[melodySelect.value] || melodies.original;
+  selectedMelody = melodies[melodySelect.value] || melodies.passeio;
   sequence = selectedMelody.keys;
   tutorialIndex = 0;
   tutorialErrors = 0;

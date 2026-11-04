@@ -54,13 +54,18 @@
       <div class="melody-picker">
         <label for="melodySelect">Escolha uma sequência</label>
         <select id="melodySelect" aria-describedby="melodyDescription">
-          <option value="original">Sequência anterior · 24 toques</option>
-          <option value="passeio">Pequeno passeio · 8 toques</option>
-          <option value="aniversario">Feliz aniversário · 25 toques</option>
-          <option value="natal">Jingle Bells · trecho de 11 toques</option>
-          <option value="resposta">Pergunta e resposta · 12 toques</option>
+          <optgroup label="Exercícios">
+            <option value="passeio">Pequeno passeio · 8 toques</option>
+            <option value="resposta">Pergunta e resposta · 12 toques</option>
+          </optgroup>
+          <optgroup label="Músicas">
+            <option value="aniversario">Feliz aniversário · 25 toques</option>
+            <option value="natal">Jingle Bells · refrão de 49 toques</option>
+            <option value="cantoAlegretense">Canto Alegretense · tema inicial, 25 toques</option>
+            <option value="asaBranca">Asa Branca · primeira estrofe, 35 toques</option>
+          </optgroup>
         </select>
-        <p id="melodyDescription">Exemplo de 24 toques preservado da versão inicial do projeto.</p>
+        <p id="melodyDescription">Melodia original de 8 toques. Explore três teclas: A, S e D.</p>
       </div>
       <button id="tutorialButton" type="button">Iniciar tutorial</button>
       <div id="tutorialLane" class="practice-lane" aria-hidden="true"></div>

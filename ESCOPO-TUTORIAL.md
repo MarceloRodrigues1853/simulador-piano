@@ -1,128 +1,73 @@
-# Evolução do tutorial: tocar junto
-
-Status: exercício mínimo preparado localmente; demais etapas planejadas. Revisão visual e sonora pendente.
-
-## Recorte atual
-
-### Evolução local de 04/11/2026 — duas melodias curtas
-
-- Seletor no tutorial: mantém a sequência anterior e acrescenta Pequeno passeio (8 toques) e Pergunta e resposta (12 toques).
-- Exercícios melódicos originais criados para o projeto, sem incorporar arranjos de terceiros.
-- Escuta e prática usam a mesma sequência; o resultado mostra o título e a quantidade de erros da tentativa. A troca de conteúdo interrompe o modo ativo, limpa os destaques e recomeça a contagem.
-- Sem ranking, histórico, conta, novas fases ou persistência.
-- Análise preliminar dos WAVs por frequência: A/S/D/G correspondem aproximadamente a Dó4/Ré4/Mi4/Sol4. Algumas outras teclas têm cor incompatível com a altura estimada (por exemplo, T é Fá sustenido, embora desenhada branca). O mapeamento visual foi preservado neste marco; a correção fica registrada antes de oferecer ensino de nomes de notas.
-- Revisão visual e sonora das novas melodias ainda pendente. Não publicado.
-
-- Exercício próprio de coordenação com oito toques: A S D T T D S A.
-- Faixa acima do piano com a tecla esperada e até três próximas teclas.
-- Avança somente ao tocar a tecla esperada; notas diferentes não penalizam.
-- Erros destacam em vermelho a tecla tocada e explicam a tecla esperada em texto; o passo não avança.
-- Após ouvir os 24 toques, a demonstração passa automaticamente à prática da mesma sequência, com espera por acerto e feedback de erro.
-- Demonstração com faixa de próximas teclas e intervalo de 0,75 segundo.
-- É possível acompanhar a demonstração tocando pelo teclado, mouse ou toque, sem interromper ou adiantar seu andamento. Ela termina pelo botão, Esc, início do treino, saída da página, conclusão ou falha de áudio.
-- Conclusão com parabéns e quantidade de erros da tentativa, com zero, singular e plural. A contagem começa novamente a cada início e só considera a etapa de prática.
-- Sem cronômetro, pontuação, cadastro ou persistência. Encerrar, Esc, trocar de modo ou sair da página interrompe; começar novamente volta ao primeiro toque.
-- Mantida a sequência da demonstração automática anterior como recurso separado, agora mais lenta e com faixa visual. A pausa com retomada e o ajuste de velocidade continuam futuros.
-- Letras representam atalhos. O exercício ainda não ensina nomes de notas, técnica de piano ou leitura musical.
-
-## Direção do projeto
-
-Evoluir como jogo educativo de autoria de Marcelo Rodrigues, preservando os créditos do desafio DIO e dos recursos utilizados. Construir pequenos desafios que incentivem prática e exploração, com identidade visual própria. Uma futura plataforma pode reunir os jogos, mas cada jogo continua com repositório e histórico próprios; o portfólio fica fora deste trabalho.
-
-Recomendação de evolução, sem implementar nesta etapa:
-
-1. Validar o exercício mínimo com uso real.
-2. Acrescentar desafios e pontuação com regras transparentes; separar prática livre de desafios de ritmo para não penalizar quem aprende devagar.
-3. Salvar preferências, exercícios concluídos e melhores resultados no navegador com `localStorage`, sem nome, e-mail ou envio desse progresso a um servidor. Oferecer apagar progresso e, se necessário, exportar/importar um arquivo.
-4. Considerar conta opcional apenas se houver demanda por sincronizar dispositivos ou recuperar progresso. Hospedagem por si só não fornece contas: autenticação, banco de dados e manutenção seriam uma decisão separada.
-
-O armazenamento local persiste entre sessões, mas pode ser apagado pelo usuário, bloqueado pelo navegador e não sincroniza automaticamente entre dispositivos. Resultados locais são editáveis e não devem sustentar ranking competitivo confiável. Em arquivos abertos por `file://`, o comportamento não é garantido; validar a futura persistência em HTTP/HTTPS. Não chamar esse recurso de cache.
-
-Referência técnica: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+# Evolução do Piano: ouvir, praticar e repetir
 
 ## Objetivo
 
-Permitir que uma pessoa iniciante acompanhe uma sequência musical visualmente e pratique sem pressa. Preservar o modo de tocar livremente e a personalidade do piano.
+Evoluir o Piano Virtual de Marcelo Rodrigues como experiência educativa de exploração musical. Preservar o piano livre, os créditos do desafio DIO e dos recursos de origem. Cada entrega deve ser pequena e revisada antes de publicar. O portfólio permanece fora deste trabalho.
 
-## Experiência proposta
+## Entregue e conferido pelo autor
 
-- Uma faixa acima do teclado mostra a indicação atual e algumas próximas indicações. Não cobre as teclas nem os controles.
-- Cada indicação mostra a letra do teclado; o nome musical da nota pode aparecer junto, depois de conferir a afinação dos arquivos de áudio. Letras de atalhos e nomes de notas devem ser claramente diferenciados.
-- A indicação atual fica destacada e a tecla correspondente acende. As indicações anteriores saem da faixa conforme a sequência avança.
-- Em telas pequenas, a faixa mostra menos indicações, mantendo a atual legível. Ela acompanha o teclado sem exigir precisão em alvos pequenos.
-- Apresentar inicialmente como guia de notas. Uma partitura musical tradicional, com pauta e duração das notas, é uma evolução separada.
+- Piano livre por teclado, clique ou toque, volume funcional e opção de silenciar.
+- Foco visível, teclado com rolagem em telas pequenas e respeito a movimento reduzido.
+- Nomes das notas, oitavas e sustenidos separados dos atalhos. Cores ajustadas conforme a análise de frequência dos WAVs.
+- Primeiros passos: exercício de oito toques, A S D T T D S A, sem cronômetro.
+- Tutorial em duas etapas: ouvir a sequência e depois tocá-la no próprio ritmo.
+- Indicação atual e até três seguintes; a prática avança somente no acerto.
+- Erros indicados em vermelho e texto, sem penalidade ou bloqueio. Resultado com mensagem de conclusão e quantidade de erros da tentativa.
+- Reinício zera a contagem; troca de sequência cancela a tentativa. Esc e saída da página interrompem o som. A conclusão normal preserva a última nota.
+- Exercícios originais: Pequeno passeio (8 toques) e Pergunta e resposta (12 toques).
+- Adaptações instrumentais: Feliz aniversário (25 toques) e início do refrão de Jingle Bells (11 toques), sem letras ou gravações externas. Fontes e créditos no README.
 
-## Primeiro marco recomendado
+A confirmação de publicação e uso no navegador foi informada pelo autor. Ela não equivale a teste completo em todos os dispositivos ou validação especializada da afinação.
 
-Uma sequência curta de exercício, com autoria e origem identificadas, para validar o acompanhamento antes de montar um catálogo.
+## Ajuste local atual — ainda não publicado
 
-1. Modo **Ouvir**: demonstração automática, com andamento lento por padrão e opção de velocidade.
-2. Modo **Praticar**: aguarda a pessoa tocar a tecla esperada para avançar. Uma tecla diferente pode soar livremente, mas não avança a sequência; a indicação continua disponível, sem penalidade.
-3. Iniciar, pausar, continuar e recomeçar com comportamento previsível; ao pausar, suspender som e avanço. Esc interrompe e sair da página também interrompe.
-4. Indicar o progresso e terminar com uma mensagem que convida a repetir ou voltar ao piano livre.
-5. Volume e silêncio continuam funcionando nos dois modos.
+- Retirar a sequência antiga de 24 toques, semelhante à melodia de aniversário. Feliz aniversário permanece como a opção identificada e adaptada.
+- Separar o seletor em Exercícios e Músicas, com Pequeno passeio como escolha inicial.
+- Atualizar testes e documentação para a seleção padrão e o repertório mantido.
+- Preservar o exercício Primeiros passos. O pedido posterior ampliou este ajuste com o repertório abaixo.
 
-O modo de prática sem limite de tempo deve ser o primeiro: a pessoa aprende as teclas antes de precisar acompanhar um ritmo.
+Critérios de revisão: o seletor deve conter dois exercícios e quatro opções musicais; ouvir e praticar devem usar o mesmo conteúdo; troca e reinício não podem acumular temporizadores ou erros de outra tentativa; os atalhos e as notas devem permanecer legíveis.
 
-## Preparação para músicas futuras
+### Ampliação de repertório solicitada nesta revisão local
 
-Manter o conteúdo musical separado da lógica de reprodução. Cada exercício ou música deve poder registrar:
+- Jingle Bells passa de 11 toques para uma adaptação do refrão com 49, incluindo resposta e fechamento; as estrofes continuam fora.
+- Asa Branca: primeira estrofe instrumental, 35 toques, com ritmo simplificado. Luiz Gonzaga e Humberto Teixeira. Fonte didática e créditos no README.
+- Canto Alegretense: tema inicial instrumental de 25 toques, transposto para o teclado atual. Antônio Augusto Fagundes e Euclides Fagundes Filho. Referência coral de Baldo Hoerlle consultada para conferência; não redistribuída.
+- Sem letras, faixas externas, ranking ou persistência. O resultado continua avaliando a ordem de teclas, não o ritmo.
+- Conferência auditiva dessas três adaptações ainda pendente. O escopo do trecho deve permanecer explícito no seletor e na descrição.
 
-- Identificador, título, autoria, fonte e informação de permissão de uso.
-- Andamento de referência e uma sequência ordenada de eventos.
-- Para cada evento: tecla, duração em tempos e eventual pausa. Nome da nota e oitava somente após validar os sons disponíveis.
-- Frases ou pequenos trechos opcionais, associados a intervalos de eventos, para futuro acompanhamento com letra.
+## Próximo marco proposto — Primeiros passos
 
-A letra de uma música, quando disponível para uso, aparece numa linha própria junto à faixa; o trecho atual fica destacado. Não colocar frases sobre as teclas. Não incluir letras nem um catálogo nesta etapa de escopo.
+Ainda não implementado e sujeito à escolha conjunta:
 
-Começar por exercícios próprios ou conteúdo com uso permitido e créditos registrados. Antes de selecionar repertório, conferir se a extensão do teclado e os áudios permitem tocar o arranjo corretamente.
+1. Apresentar poucas notas por vez, começando com Dó–Ré–Mi.
+2. Ampliar gradualmente até Dó–Ré–Mi–Fá–Sol–Lá–Si–Dó, com caminho inverso depois.
+3. Mostrar uma instrução curta e uma indicação clara de progresso.
+4. Manter repetição livre e resultado simples, sem prazo ou ranking.
 
-## Etapas posteriores
+## Ideias futuras — fora da entrega atual
 
-- Pequena lista de músicas com indicação de dificuldade e seleção de trecho para repetir.
-- Notas com duração visual e acompanhamento de ritmo, mantendo o modo sem pressão de tempo.
-- Letra sincronizada por frase, quando aplicável.
-- Partitura tradicional e acordes, após validar a necessidade e o suporte do instrumento.
+- Desafios por trechos: praticar frases curtas, repetir e juntá-las até tocar uma música inteira. Avaliar uma guia própria somente quando esse fluxo justificar outra tela.
+- Evolução pessoal: regras claras de pontuação por modo, erros e melhores tentativas. Não apresentar o simples contador de erros atual como pontuação ou ranking.
+- Ritmo: pulsação visual, som opcional, andamento ajustável e tolerância explícita. Manter um modo sem pressão de tempo.
+- Repertório: ampliar Jingle Bells e selecionar melodias tradicionais, folclore brasileiro e, depois, outras categorias. Conferir composição, arranjo, extensão do instrumento e permissão de uso antes de incluir recursos de terceiros.
+- Partitura: introduzir pauta, clave, altura e duração gradualmente. O guia atual de nomes e atalhos não é uma partitura.
+- Timbres: explorar teclado digital e outros sons sem quebrar os mesmos exercícios e controles de volume.
+- Progresso local opcional, sem nome ou e-mail: preferências, exercícios concluídos e melhores resultados, com opção de apagar. Informar que limpar dados do navegador pode remover o progresso e que ele não sincroniza automaticamente entre dispositivos. Validar em HTTP/HTTPS, sem depender de file://.
+- Conta opcional somente se sincronizar dispositivos ou recuperar progresso justificar autenticação, banco de dados e manutenção. Hospedagem por si só não oferece esse recurso.
 
-Não fazem parte do primeiro marco: contas, ranking, backend, reconhecimento por microfone ou avaliação automática de desempenho musical.
+Não há compromisso com prazo, ranking online, backend, reconhecimento por microfone ou ensino completo de piano neste MVP.
 
-## Acessibilidade e critérios de revisão
+## Qualidade e limitações
 
-- Operar todos os controles com teclado e toque, com foco visível.
-- Distinguir a indicação atual por texto e forma, além de cor.
-- Com movimento reduzido, atualizar as indicações sem deslocamento ou desaparecimento animado.
-- No modo Ouvir, evitar anúncios de leitor de tela a cada nota; anunciar início, pausa e conclusão. No modo Praticar, oferecer a indicação esperada em texto acessível.
-- Confirmar que tocar a indicação correta avança uma única vez, inclusive em notas repetidas; segurar uma tecla não deve pular etapas.
-- Conferir pausa, retomada, reinício, finalização e troca de modo sem temporizadores ou áudios sobrepostos.
-- Validar uso em tela pequena e a relação entre a indicação visível e a tecla real.
+- Preservar teclado e toque, foco visível e mensagens compreensíveis sem depender apenas de cor.
+- Validar em tela pequena e com leitor de tela. Reduzir anúncios repetitivos na escuta continua uma melhoria futura, não uma garantia entregue.
+- A análise de frequência identificou aproximadamente A/S/D/G como Dó4/Ré4/Mi4/Sol4. Uma revisão auditiva especializada da afinação continua pendente.
+- Pausa com retomada e controle de velocidade ainda não existem; interromper e recomeçar são os comportamentos disponíveis.
+- Testes automatizados simulam página, áudio e temporizadores; não substituem revisão visual, sonora e de toque real.
 
-## Entrega futura
+## Revisão e comunicação
 
-Apresentar uma prévia local com um exercício funcionando, informar os testes realizados e limitações e revisar em conjunto antes de escolher mais músicas. Publicação e operações Git continuam dependendo de autorização específica.
+Apresentar alterações, arquivos, validações e pendências antes de versionar. Marcelo executa Git manualmente no Git Bash, salvo pedido específico em contrário. Push, criação de PR, merge e publicação exigem autorizações separadas.
 
-
-## Progressão de fases proposta (futura)
-
-Manter treino livre e repetição disponíveis, sem bloquear o aprendizado por erros. Cada fase deve ter uma habilidade clara, demonstração e desafio curto. A conclusão atual é um ponto de partida; as fases abaixo ainda não estão implementadas.
-
-1. **Encontrar as teclas:** exercícios próprios curtos de coordenação, ampliando a sequência inicial e apresentando poucas teclas de cada vez.
-2. **Conhecer as notas:** conferir afinação e oitavas dos arquivos; associar os atalhos às notas musicais reais. Começar com identificação visual; reconhecimento auditivo é um desafio separado, com alternativa visual.
-3. **Sentir o tempo:** pulsação visual e sonora opcional, andamento ajustável e sequências com durações e pausas. Introduzir tolerância de tempo explícita e manter prática sem cronômetro.
-4. **Tocar pequenas melodias:** escuta seguida de reprodução de frases, com repetição de trechos. Selecionar arranjos compatíveis com a extensão do instrumento.
-5. **Explorar repertório:** organizar categorias futuras como folclore brasileiro, concerto/clássico, pop e rock. Verificar individualmente a composição, o arranjo e os recursos utilizados antes de incluí-los. Começar por exercícios próprios e repertório com permissão de uso confirmada, com créditos.
-6. **Ler partitura:** introduzir pauta, clave, altura e duração gradualmente, oferecendo nomes das notas e atalhos como apoio opcional. Não apresentar apenas as letras do teclado como partitura.
-
-Só depois de validar os desafios: pontos por conclusão e evolução pessoal, regras claras por modo e progresso local opcional. Nenhum ranking competitivo ou conta faz parte do MVP. Recompensar repetição e aprendizado, sem tratar os primeiros erros como fracasso.
-
-## Comunicação no LinkedIn
-
-Apresentar como evolução autoral de um projeto iniciado no desafio DIO, com créditos preservados. Destacar o ciclo ouvir, praticar, receber feedback e repetir, além dos testes automatizados. Distinguir melhorias locais de funcionalidades publicadas; anunciar fases, repertório e persistência como planos. Publicar capturas reais e o link atualizado somente após revisão e publicação autorizada. Não afirmar que o projeto já ensina piano completo ou leitura de partitura.
-
-
-## Ajuste local: notas e repertório para iniciantes
-
-- Nome da nota, oitava e atalho separados no piano e reunidos nas indicações do exercício. Correção das cores de Fá/Fá♯, Sol/Sol♯ e Lá/Lá♯/Si de acordo com os WAVs estimados. Sem alterar os arquivos de áudio.
-- Adaptação instrumental de Feliz aniversário (25 toques) e trecho inicial do refrão de Jingle Bells (11 toques). Fontes e créditos no README; sem letra, acompanhamento harmônico ou arranjos modernos copiados.
-- Durações relativas na demonstração; prática livre de limite de tempo, sem pontuar ritmo.
-- Para o próximo marco, escolher apenas uma habilidade: associar nomes às teclas OU acompanhar uma pulsação lenta. Depois, avançar para trechos maiores de repertório tradicional e, mais adiante, pauta musical.
-- Ainda requer escuta e revisão visual local. Não publicado. Esta atualização substitui a pendência anterior de cores desenhadas incorretamente; validação auditiva da afinação continua pendente.
+Após publicação, conferir o endereço público e o commit, preparar captura real e levar um resumo à conversa original do portfólio. Na divulgação, distinguir funções entregues de planos e preservar os créditos de autoria e origem. Não anunciar ensino de partitura ou piano completo.

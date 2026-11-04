@@ -6,7 +6,7 @@ Piano virtual desenvolvido por **Marcelo Rodrigues**, a partir de um desafio da 
 
 [Demo no GitHub Pages](https://marcelorodrigues1853.github.io/simulador-piano/)
 
-As melhorias descritas neste marco estão em revisão local e ainda não foram publicadas na demo.
+A versão com notas e repertório inicial foi publicada e conferida pelo autor. A versão local em revisão remove a sequência antiga de 24 toques, organiza exercícios e músicas e amplia o repertório. Estes ajustes ainda não foram publicados.
 
 ## Executar localmente
 
@@ -22,15 +22,15 @@ Depois abra `http://127.0.0.1:8765`. Para encerrar o servidor, use Ctrl+C no ter
 
 ## Controles e modos
 
-Nesta evolução local, o tutorial oferece duas melodias originais curtas: **Pequeno passeio** (8 toques, A/S/D) e **Pergunta e resposta** (12 toques, A/S/D/G). Escolha uma no seletor, ou mantenha a sequência anterior de 24 toques. Primeiro ouça, depois reproduza a mesma sequência. O resultado identifica a melodia e informa seus erros; recomeçar zera a tentativa. Trocar de sequência interrompe o modo ativo antes de iniciar outro conteúdo.
+O seletor organiza o conteúdo em **Exercícios** e **Músicas**. Os exercícios originais são **Pequeno passeio** (8 toques, A/S/D), selecionado por padrão, e **Pergunta e resposta** (12 toques, A/S/D/G). A sequência antiga de 24 toques foi retirada por ser semelhante a Feliz aniversário. Primeiro ouça, depois reproduza a mesma sequência. O resultado identifica a melodia e informa seus erros; recomeçar zera a tentativa. Trocar de sequência interrompe o modo ativo antes de iniciar outro conteúdo.
 
-Essas duas melodias foram criadas para os exercícios deste projeto; não são adaptações de repertório popular. Sua inclusão e o seletor ainda aguardam revisão local e publicação.
+Essas duas melodias foram criadas para os exercícios deste projeto; não são adaptações de repertório popular. Os exercícios e o seletor já fazem parte do repertório inicial; a organização em grupos é o ajuste local atual.
 
 - **Piano livre:** clique, toque ou use as letras A W S E D F T G Y H U J K O L P e ponto e vírgula.
 - **Teclado acessível:** Tab navega pelos controles; Enter e Espaço acionam a tecla em foco. O foco fica visível.
 - **Volume e silêncio:** ajuste o volume ou use Silenciar, inclusive durante o tutorial.
 - **Treino — Primeiros passos:** exercício próprio de oito toques: A S D T T D S A. A faixa mostra a indicação atual e até três seguintes. O treino espera a tecla correta; um erro destaca a tecla tocada em vermelho e informa qual era a esperada, sem penalidade. Ao acertar, o exercício avança.
-- **Tutorial — Ouça primeiro, depois toque:** reproduz os 24 toques da sequência de exemplo com intervalo de 0,75 segundo. Ao terminar, passa automaticamente à prática: mostra a tecla esperada e até três seguintes, espera o acerto e indica erros em vermelho e texto. Durante a escuta, tocar manualmente não interrompe a demonstração. Iniciar o treino encerra o tutorial.
+- **Tutorial — Ouça primeiro, depois toque:** reproduz a sequência escolhida. Os exercícios usam intervalos de 0,75 segundo; as músicas usam durações relativas diferentes. Ao terminar, passa automaticamente à prática: mostra a tecla esperada e até três seguintes, espera o acerto e indica erros em vermelho e texto. Durante a escuta, tocar manualmente não interrompe a demonstração. Iniciar o treino encerra o tutorial.
 - **Parar e recomeçar:** use o botão do modo ativo ou Esc. Ao sair da página, o som e o modo ativo são interrompidos. Um novo início volta ao primeiro passo.
 - **Telas pequenas:** deslize horizontalmente o teclado. As indicações não dependem de animação e o estilo respeita movimento reduzido.
 
@@ -74,15 +74,25 @@ Desenvolvimento e evolução: **Marcelo Rodrigues** ([MarceloRodrigues1853](http
 Projeto originado no desafio educacional da **Digital Innovation One (DIO)**. Agradecimentos ao instrutor **Felipe Silva Aguiar** ([felipeAguiarCode](https://github.com/felipeAguiarCode)) e às contribuições da comunidade. Os créditos de origem permanecem preservados.
 
 
-## Evolução local: nomes de notas e repertório inicial
+## Notas e repertório inicial
 
 Os nomes Dó/Ré/Mi/Fá/Sol/Lá/Si aparecem acima dos atalhos, com indicação de oitava e sustenido (♯). A faixa guiada também mostra nota e atalho. Ocultar atalhos mantém os nomes das notas visíveis. As cores foram corrigidas para corresponder às alturas estimadas dos WAVs, sem trocar os arquivos ou os atalhos. Esta interface é um guia de notas, não uma partitura em pauta.
 
-Duas opções instrumentais didáticas, sem letras ou gravações externas, foram acrescentadas:
+O repertório instrumental didático não usa letras ou gravações externas:
 
-- **Feliz aniversário:** adaptação monofônica da melodia de Mildred J. Hill, publicada em Good Morning to All (1893), transposta para caber no teclado. 25 toques; preserva repetições, saltos e durações relativas básicas. A sequência antiga foi mantida separadamente como exemplo legado, não como versão musical conferida.
-- **Jingle Bells — início do refrão:** trecho de 11 toques da composição de James Lord Pierpont (1857), com adaptação didática própria e durações relativas. Não é a música inteira nem a letra da versão brasileira.
+- **Feliz aniversário:** adaptação monofônica da melodia de Mildred J. Hill, publicada em Good Morning to All (1893), transposta para caber no teclado. 25 toques; preserva repetições, saltos e durações relativas básicas. É a única opção de aniversário no seletor após a limpeza local.
+- **Jingle Bells — refrão:** adaptação de 49 toques da composição de James Lord Pierpont (1857), com adaptação didática própria e durações relativas. Inclui as frases de resposta e o fechamento do refrão. Não inclui as estrofes nem a letra da versão brasileira.
 
-As demonstrações usam uma unidade de tempo de 750 ms; a prática espera o acerto sem avaliar ritmo. Repertório e identificação sonora ainda aguardam revisão auditiva local antes de publicação.
+As demonstrações usam uma unidade de tempo de 750 ms; a prática espera o acerto sem avaliar ritmo. O autor conferiu o repertório inicial no navegador. A análise dos WAVs continua sem substituir uma revisão musical completa da afinação.
 
 Fontes de autoria e origem: [Copyright Office — origem da melodia de aniversário](https://www.copyright.gov/history/lore/pdfs/201004%20CLore_April2010.pdf) e [Library of Congress — The One Horse Open Sleigh (1857)](https://www.loc.gov/item/2023812429/). Não foram copiados arranjos modernos, letras ou gravações dessas fontes.
+
+
+## Repertório brasileiro em revisão local
+
+- **Asa Branca — primeira estrofe:** Luiz Gonzaga e Humberto Teixeira (1947), 35 toques. Linha melódica instrumental adaptada para o teclado disponível, com ritmo simplificado. Não inclui a introdução de sanfona, as demais estrofes, letras ou acompanhamento de baião. Referência de conferência: [transcrição didática de Marcelo Mello](https://marcelomelloweb.net/luiz_gonzaga_asabranca.htm).
+- **Canto Alegretense — tema inicial:** Antônio Augusto Fagundes e Euclides Fagundes Filho, 25 toques. Motivo de abertura transposto e simplificado para este teclado; não corresponde à canção completa. Referência de conferência: [partituras do arranjador Baldo Hoerlle](https://maestrobaldo.com.br/partituras/). A referência coral não é distribuída com o jogo e os créditos do arranjador são preservados.
+
+As adaptações novas precisam de conferência auditiva antes de serem consideradas musicalmente validadas. Os testes de durações e sequências verificam o comportamento programado, não garantem fidelidade a uma interpretação musical específica. Pausas e articulação foram simplificadas: as durações determinam o tempo até o próximo toque, sem simular pedal ou técnica de execução.
+
+A quantidade de toques varia com a frase escolhida; ela não é uma medida única de dificuldade. O título e a descrição indicam se a opção cobre um tema, uma estrofe ou um refrão. Antes de ampliar o seletor, a próxima evolução de interface deve separar melhor repertório e prática por trechos.
