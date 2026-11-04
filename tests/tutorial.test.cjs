@@ -98,11 +98,11 @@ for (const input of ['keyboard', 'click']) {
       assert.deepEqual(app.get('tutorialLane').children.map(cue => cue.textContent), initialCues);
     }
     // Testa os áudios.
-    assert.equal(app.audio.find(voice => voice.src.endsWith('/a.wav')).plays, 1);
-    assert.equal(app.audio.find(voice => voice.src.endsWith('/s.wav')).plays, 3);
+    assert.equal(app.audio.find(voice => voice.src.endsWith('/a.wav')).plays, 2);
+    assert.equal(app.audio.find(voice => voice.src.endsWith('/s.wav')).plays, 2);
     app.tick();
     // Testa o passo 2 do tutorial.
-    assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 24/);
+    assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 8/);
     app.click('tutorialButton');
     assert.equal(app.timers.size, 0);
   });
@@ -115,18 +115,18 @@ test('tutorial passa da escuta à prática e conclui somente após os acertos', 
   // Clica no botão de iniciar o tutorial.
   app.click('tutorialButton');
   // Testa os passos do tutorial.
-  for (let step = 0; step < 24; step++) {
+  for (let step = 0; step < 8; step++) {
     app.press('a');
     app.tick();
   }
-  // Testa o passo 24 do tutorial.
+  // Testa o passo 8 do tutorial.
   assert.match(app.get('tutorialNotes').textContent, /Agora é sua vez/);
   assert.equal(app.scheduledNotes().length, 0);
-  app.press('a');
-  assert.match(app.get('tutorialNotes').textContent, /esperada é Ré 4 \(atalho S\)/);
+  app.press('p');
+  assert.match(app.get('tutorialNotes').textContent, /esperada é Dó 4 \(atalho A\)/);
   assert.ok(app.get('tutorialNotes').classList.contains('error'));
-  assert.ok(app.keys.find(button => button.dataset.key === 'a').classList.contains('wrong'));
-  for (const key of ['s','s','d','s','g','t','s','s','d','s','h','g','s','s','j','g','t','d','j','k','j','g','h','g']) app.press(key);
+  assert.ok(app.keys.find(button => button.dataset.key === 'p').classList.contains('wrong'));
+  for (const key of ['a','s','d','s','a','s','d','a']) app.press(key);
   assert.match(app.get('tutorialNotes').textContent, /concluído/);
   assert.ok(!app.get('tutorialNotes').classList.contains('error'));
   assert.equal(app.get('tutorialLane').children.length, 0);
@@ -137,19 +137,19 @@ test('tutorial passa da escuta à prática e conclui somente após os acertos', 
 test('conclusão deixa a última nota terminar e Esc ainda interrompe o áudio', () => {
   const app = setup();
   app.click('tutorialButton');
-  for (let i = 0; i < 24; i++) app.tick();
-  const notes = ['s','s','d','s','g','t','s','s','d','s','h','g','s','s','j','g','t','d','j','k','j','g','h','g'];
+  for (let i = 0; i < 8; i++) app.tick();
+  const notes = ['a','s','d','s','a','s','d','a'];
   for (const key of notes.slice(0, -1)) app.press(key);
-  const lastVoice = app.audio.find(voice => voice.src.endsWith('/g.wav'));
+  const lastVoice = app.audio.find(voice => voice.src.endsWith('/a.wav'));
   const pausesBefore = lastVoice.pauses;
   const playsBefore = lastVoice.plays;
-  app.press('g');
+  app.press('a');
   assert.equal(lastVoice.plays, playsBefore + 1);
   assert.equal(lastVoice.pauses, pausesBefore, 'concluir não deve pausar a última nota');
   assert.match(app.get('tutorialNotes').textContent, /Parabéns!/);
   assert.equal(app.get('tutorialButton').textContent, 'Iniciar tutorial');
   assert.equal(app.scheduledNotes().length, 0);
-  const lastKey = app.keys.find(button => button.dataset.key === 'g');
+  const lastKey = app.keys.find(button => button.dataset.key === 'a');
   assert.ok(lastKey.classList.contains('active'));
   // Executa a remoção do destaque para garantir que ele não fique preso na tela.
   for (const [id, timer] of [...app.timers]) {
@@ -193,7 +193,7 @@ test('parar e recomeçar retorna ao primeiro passo da escuta', () => {
   app.press('a');
   app.click('tutorialButton');
   app.click('tutorialButton');
-  assert.match(app.get('tutorialNotes').textContent, /Passo 1 de 24/);
+  assert.match(app.get('tutorialNotes').textContent, /Passo 1 de 8/);
   assert.equal(app.scheduledNotes().length, 1);
 });
 
@@ -216,7 +216,7 @@ for (const action of ['button', 'Escape', 'practice', 'hidden', 'pagehide']) {
   test(`${action} também encerra a etapa de prática do tutorial`, () => {
     const app = setup();
     app.click('tutorialButton');
-    for (let i = 0; i < 24; i++) app.tick();
+    for (let i = 0; i < 8; i++) app.tick();
     app.press('a');
     if (action === 'button') app.click('tutorialButton');
     if (action === 'Escape') app.press('Escape');
@@ -236,13 +236,13 @@ test('tecla mantida pressionada não pula notas repetidas na prática do tutoria
   const app = setup();
   // Clica no botão de iniciar o tutorial.
   app.click('tutorialButton');
-  for (let i = 0; i < 24; i++) app.tick();
-  app.press('s');
-  assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 24/);
+  for (let i = 0; i < 8; i++) app.tick();
+  app.press('a');
+  assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 8/);
   app.press('s', { repeat: true });
-  assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 24/);
+  assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 8/);
   app.keys.find(button => button.dataset.key === 's').events.click();
-  assert.match(app.get('tutorialNotes').textContent, /Passo 3 de 24/);
+  assert.match(app.get('tutorialNotes').textContent, /Passo 3 de 8/);
 });
 
 // Confere singular, plural e reinício dos resultados dos dois modos.
@@ -252,13 +252,13 @@ for (const mode of ['treino', 'tutorial']) {
       const app = setup();
       const button = mode === 'treino' ? 'practiceButton' : 'tutorialButton';
       const status = mode === 'treino' ? 'practiceStatus' : 'tutorialNotes';
-      const notes = mode === 'treino' ? ['a','s','d','t','t','d','s','a'] : ['s','s','d','s','g','t','s','s','d','s','h','g','s','s','j','g','t','d','j','k','j','g','h','g'];
+      const notes = mode === 'treino' ? ['a','s','d','t','t','d','s','a'] : ['a','s','d','s','a','s','d','a'];
       const start = () => {
         app.click(button);
         if (mode === 'tutorial') {
           // Tocar durante a escuta não conta como erro.
           app.press('p');
-          for (let i = 0; i < 24; i++) app.tick();
+          for (let i = 0; i < 8; i++) app.tick();
         }
       };
       start();
@@ -307,7 +307,7 @@ for (const phase of ['listen', 'play']) {
     const app = setup();
     app.click('tutorialButton');
     if (phase === 'play') {
-      for (let i = 0; i < 24; i++) app.tick();
+      for (let i = 0; i < 8; i++) app.tick();
       app.press('p');
     }
     app.get('melodySelect').value = 'passeio';
@@ -325,8 +325,10 @@ for (const phase of ['listen', 'play']) {
 }
 
 for (const [id, notes, beats] of [
+  ['cantoAlegretense', ["g", "g", "j", "h", "j", "h", "j", "h", "h", "g", "h", "g", "g", "g", "j", "h", "j", "h", "j", "h", "h", "g", "g", "g", "g"], [1, 1, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 1, 2.5, 1, 1, 1, 0.5, 1, 0.5, 1, 0.5, 1, 0.5, 4, 1, 1]],
   ['aniversario', ['s','s','d','s','g','t','s','s','d','s','h','g','s','s','l','j','g','t','d','k','k','j','g','h','g'], [.75,.25,1,1,1,2,.75,.25,1,1,1,2,.75,.25,1,1,1,1,1,.75,.25,1,1,1,2]],
-  ['natal', ['d','d','d','d','d','d','d','g','a','s','d'], [1,1,2,1,1,2,1,1,1.5,.5,3]],
+  ['natal', ["d", "d", "d", "d", "d", "d", "d", "g", "a", "s", "d", "f", "f", "f", "f", "f", "d", "d", "d", "d", "s", "s", "d", "s", "g", "d", "d", "d", "d", "d", "d", "d", "g", "a", "s", "d", "f", "f", "f", "f", "f", "d", "d", "d", "g", "g", "f", "s", "a"], [1, 1, 2, 1, 1, 2, 1, 1, 1.5, 0.5, 4, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1.5, 0.5, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4]],
+  ['asaBranca', ["g", "h", "j", "l", "l", "j", "k", "k", "g", "h", "j", "l", "l", "k", "j", "g", "g", "h", "j", "l", "l", "k", "j", "g", "k", "j", "j", "h", "h", "j", "h", "h", "h", "g", "g"], [0.5, 0.5, 1, 1, 1, 1, 1, 2, 0.5, 0.5, 1, 1, 1, 1, 2, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 2]],
 ]) {
   test(`${id}: respeita durações e pratica a mesma melodia até o resultado`, () => {
     const app = setup();
@@ -354,4 +356,27 @@ test('guia apresenta nota e atalho juntos sem confundir Dó com a letra C', () =
   assert.equal(app.get('practiceLane').children[0].textContent, 'Agora: Dó 4 (atalho A)');
   app.press('s');
   assert.match(app.get('practiceStatus').textContent, /esperada é Dó 4 \(atalho A\)/);
+});
+
+// A sequência antiga não pode continuar disponível por seleção residual.
+test('seleção antiga retorna ao exercício padrão sem reintroduzir o exemplo legado', () => {
+  const app = setup();
+  app.get('melodySelect').value = 'original';
+  app.get('melodySelect').events.change();
+  app.click('tutorialButton');
+  assert.match(app.get('tutorialNotes').textContent, /Passo 1 de 8/);
+  assert.match(app.get('tutorialLane').children[0].textContent, /Dó 4/);
+});
+// Mantém a cobertura de notas iguais consecutivas na música de aniversário.
+test('segurar Ré não pula os dois primeiros toques de Feliz aniversário', () => {
+  const app = setup();
+  app.get('melodySelect').value = 'aniversario';
+  app.get('melodySelect').events.change();
+  app.click('tutorialButton');
+  for (let i = 0; i < 25; i++) app.tick();
+  app.press('s');
+  app.press('s', { repeat: true });
+  assert.match(app.get('tutorialNotes').textContent, /Passo 2 de 25/);
+  app.press('s');
+  assert.match(app.get('tutorialNotes').textContent, /Passo 3 de 25/);
 });

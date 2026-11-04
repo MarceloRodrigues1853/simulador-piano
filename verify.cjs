@@ -10,10 +10,10 @@ vm.runInContext(fs.readFileSync('src/scripts/engine.js','utf8'),ctx);const ev=s=
 assert.equal(audio.length,17);assert.ok(audio.every(a=>a.volume===0.5));
 elements.get('volume').value='0.23';elements.get('volume').events.input();assert.ok(audio.every(a=>a.volume===0.23));click('soundButton');assert.ok(audio.every(a=>a.muted));click('soundButton');assert.ok(audio.every(a=>!a.muted));
 click('tutorialButton');assert.equal(ev('tutorialRunning'),true);assert.equal([...timers.values()].filter(t=>t.ms===750).length,1);click('tutorialButton');assert.equal(timers.size,0);
-click('tutorialButton');keys[0].events.click();assert.equal(ev('tutorialRunning'),true);assert.equal(audio[0].count,1);
-const ke={key:'A',target:el(),preventDefault(){}};events.keydown(ke);assert.equal(audio[0].count,2);events.keydown({...ke,repeat:true});events.keydown({...ke,target:{closest:()=>true}});assert.equal(audio[0].count,2);
+click('tutorialButton');keys[0].events.click();assert.equal(ev('tutorialRunning'),true);assert.equal(audio[0].count,3);
+const ke={key:'A',target:el(),preventDefault(){}};events.keydown(ke);assert.equal(audio[0].count,4);events.keydown({...ke,repeat:true});events.keydown({...ke,target:{closest:()=>true}});assert.equal(audio[0].count,4);
 events.keydown({key:'Escape'});assert.equal(timers.size,0);click('tutorialButton');document.hidden=true;events.visibilitychange();assert.equal(timers.size,0);document.hidden=false;
-click('tutorialButton');let steps=0;while(ev('tutorialStage')==='listen'){const e=[...timers].find(([,t])=>t.ms===750);assert.ok(e);timers.delete(e[0]);e[1].fn();assert.ok(++steps<30)}assert.equal(steps,24);assert.equal(ev('tutorialStage'),'play');for(const key of ev('[...sequence]'))events.keydown({key,target:el(),preventDefault(){}});assert.equal(ev('tutorialRunning'),false);events.keydown({key:'Escape'});assert.equal(timers.size,0);for(const a of audio)assert.ok(fs.existsSync(a.src));
+click('tutorialButton');let steps=0;while(ev('tutorialStage')==='listen'){const e=[...timers].find(([,t])=>t.ms===750);assert.ok(e);timers.delete(e[0]);e[1].fn();assert.ok(++steps<30)}assert.equal(steps,8);assert.equal(ev('tutorialStage'),'play');for(const key of ev('[...sequence]'))events.keydown({key,target:el(),preventDefault(){}});assert.equal(ev('tutorialRunning'),false);events.keydown({key:'Escape'});assert.equal(timers.size,0);for(const a of audio)assert.ok(fs.existsSync(a.src));
 console.log('PASS: 17 notas, volume, silêncio, tutorial único/parada/reinício/conclusão, teclado, repetição, campos, Esc e página oculta. DOM e áudio simulados.');
 
 click('practiceButton');assert.equal(ev('practiceRunning'),true);assert.equal(ev('practiceIndex'),0);
